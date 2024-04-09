@@ -1,0 +1,117 @@
+i:Ts/NumberOfThreads = 16
+b:Ge/World/Invisible = "True"
+
+sv:Ma/Cotton/Components        = 3 "Carbon" "Hydrogen" "Oxygen"
+uv:Ma/Cotton/Fractions         = 3 6 10 5
+b:Ma/Cotton/NormalizeFractions = "True"
+d:Ma/Cotton/Density            = 1.55 g/cm3
+
+d:Spacesuit/HLX      = 100 mm
+d:Spacesuit/HLY      = 100 mm
+
+s:Ge/Outer/Material  = "G4_KEVLAR"       # (1)
+# s:Ge/Outer/Material  = "G4_POLYETHYLENE" # (2)
+# s:Ge/Outer/Material  = "Aluminum"        # (3)
+s:Ge/Outer/Parent    = "World"
+s:Ge/Outer/Type      = "TsBox"
+d:Ge/Outer/HLZ       = 3.175 mm
+d:Ge/Outer/HLX       = Spacesuit/HLX mm
+d:Ge/Outer/HLY       = Spacesuit/HLY mm
+d:Ge/Outer/TransZ    = 0 mm
+s:Ge/Outer/Color     = "white"
+
+s:Ge/Middle/Material = "Mylar"
+s:Ge/Middle/Parent   = "World"
+s:Ge/Middle/Type     = "TsBox"
+d:Ge/Middle/HLZ      = 0.5 mm
+d:Ge/Middle/HLX      = Spacesuit/HLX mm
+d:Ge/Middle/HLY      = Spacesuit/HLY mm
+d:Ge/Middle/TransZ   = 3.675 mm
+s:Ge/Middle/Color    = "red"
+
+s:Ge/Inner1/Material = "G4_TEFLON"
+s:Ge/Inner1/Parent   = "World"
+s:Ge/Inner1/Type     = "TsBox"
+d:Ge/Inner1/HLZ      = 0.5 mm
+d:Ge/Inner1/HLX      = Spacesuit/HLX mm
+d:Ge/Inner1/HLY      = Spacesuit/HLY mm
+d:Ge/Inner1/TransZ   = 4.675 mm
+s:Ge/Inner1/Color    = "yellow"
+
+s:Ge/Inner2/Material = "Cotton"
+s:Ge/Inner2/Parent   = "World"
+s:Ge/Inner2/Type     = "TsBox"
+d:Ge/Inner2/HLZ      = 1 mm
+d:Ge/Inner2/HLX      = Spacesuit/HLX mm
+d:Ge/Inner2/HLY      = Spacesuit/HLY mm
+d:Ge/Inner2/TransZ   = 6.175 mm
+s:Ge/Inner2/Color    = "green"
+
+s:Ge/Bottom/Material = "G4_NYLON-8062"
+s:Ge/Bottom/Parent   = "World"
+s:Ge/Bottom/Type     = "TsBox"
+d:Ge/Bottom/HLZ      = 0.005 mm
+d:Ge/Bottom/HLX      = Spacesuit/HLX mm
+d:Ge/Bottom/HLY      = Spacesuit/HLY mm
+d:Ge/Bottom/TransZ   = 7.18 mm
+s:Ge/Bottom/Color    = "blue"
+
+s:Ge/BeamPosition/Parent           = "World"
+s:Ge/BeamPosition/Type             = "Group"
+d:Ge/BeamPosition/TransX           = 0 m
+d:Ge/BeamPosition/TransY           = 0 m
+d:Ge/BeamPosition/TransZ           = Ge/World/HLZ m * -1
+d:Ge/BeamPosition/RotX             = 0 deg
+d:Ge/BeamPosition/RotY             = 0 deg
+d:Ge/BeamPosition/RotZ             = 0 deg
+
+s:So/Beam/Type                     = "Beam"
+s:So/Beam/Component                = "BeamPosition"
+s:So/Beam/BeamParticle             = "proton"
+d:So/Beam/BeamEnergy               = 15 GeV
+u:So/Beam/BeamEnergySpread         = 0.757504
+s:So/Beam/BeamPositionDistribution = "Gaussian"
+s:So/Beam/BeamPositionCutoffShape  = "Ellipse"
+d:So/Beam/BeamPositionCutoffX      = 10 cm
+d:So/Beam/BeamPositionCutoffY      = 10 cm
+d:So/Beam/BeamPositionSpreadX      = 0.65 cm
+d:So/Beam/BeamPositionSpreadY      = 0.65 cm
+s:So/Beam/BeamAngularDistribution  = "Gaussian"
+d:So/Beam/BeamAngularCutoffX       = 90 deg
+d:So/Beam/BeamAngularCutoffY       = 90 deg
+d:So/Beam/BeamAngularSpreadX       = 0.0032 rad
+d:So/Beam/BeamAngularSpreadY       = 0.0032 rad
+i:So/Beam/NumberOfHistoriesInRun   = 1000
+
+s:Ge/Surface/Material = "G4_SKIN_ICRP"
+s:Ge/Surface/Parent   = "World"
+s:Ge/Surface/Type     = "TsBox"
+d:Ge/Surface/HLZ      = 5 mm
+d:Ge/Surface/HLX      = Spacesuit/HLX mm
+d:Ge/Surface/HLY      = Spacesuit/HLY mm
+d:Ge/Surface/TransZ   = 12.185 mm
+s:Ge/Surface/Color    = "maroon"
+
+s:Sc/PhaseSpace/Quantity                    = "PhaseSpace"
+b:Sc/PhaseSpace/OutputToConsole             = "True"
+s:Sc/PhaseSpace/Surface                     = "Surface/ZMinusSurface"
+s:Sc/PhaseSpace/OutputType                  = "ASCII"
+s:Sc/PhaseSpace/OutputFile                  = "spacesuit"
+i:Sc/PhaseSpace/OutputBufferSize            = 1000
+b:Sc/PhaseSpace/IncludeRunID                = "True"
+b:Sc/PhaseSpace/IncludeEventID              = "True"
+b:Sc/PhaseSpace/IncludeTrackID              = "True"
+b:Sc/PhaseSpace/IncludeTime                 = "True"
+b:Sc/PhaseSpace/IncludeSeed                 = "True"
+s:Sc/PhaseSpace/IfOutputFileAlreadyExists   = "Overwrite"
+b:Sc/PhaseSpace/OutputAfterRun              = "True"
+
+# s:Gr/View/Type                             = "OpenGL"
+# i:Gr/View/WindowSizeX                      = 900
+# i:Gr/View/WindowSizeY                      = 900
+# d:Gr/View/Theta                            = 55 deg
+# d:Gr/View/Phi                              = 20 deg
+# s:Gr/View/Projection                       = "Perspective"
+# d:Gr/View/PerspectiveAngle                 = 30 deg
+# b:Gr/View/HiddenLineRemovalForTrajectories = "True"
+# b:Ts/PauseBeforeQuit = "True"
